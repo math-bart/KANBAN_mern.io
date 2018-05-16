@@ -55,6 +55,7 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
   dummyData();
 });
 
+
 // Apply body Parser and server public assets and routes
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));

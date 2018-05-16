@@ -30,7 +30,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.all}>
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
         <div>
           <Helmet
@@ -48,15 +48,11 @@ export class App extends Component {
               },
             ]}
           />
-          <Header
-            switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
-            intl={this.props.intl}
-            toggleAddPost={this.toggleAddPostSection}
-          />
+          
           <div className={styles.container}>
             {this.props.children}
           </div>
-          <Footer />
+          
         </div>
       </div>
     );

@@ -31,4 +31,7 @@ body {
 	background: #FFF;
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
+	background-image: url('https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252_960_720.jpg');
+    background-size: cover;
 }
+
