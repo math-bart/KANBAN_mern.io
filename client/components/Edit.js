@@ -10,8 +10,7 @@ export default class Edit extends Component {
 
   finishEdit = (e) => {
     const value = e.target.value;
-      this.props.onUpdate(value);
-	  console.log(value);
+    this.props.onUpdate(value);
   }
 
   renderDelete = () => {
@@ -29,19 +28,17 @@ export default class Edit extends Component {
     );
   }
 
- 
-    renderEdit = () => {
-      return (
-        <input
-          type="text"
-          autoFocus
-          defaultValue={this.props.value}
-          onBlur={this.finishEdit}
-          onKeyPress={this.checkEnter}
-        />
-      );
-    }
-  
+  renderEdit = () => {
+    return (
+      <input
+        type="text"
+        autoFocus
+        defaultValue={this.props.value}
+        onBlur={this.finishEdit}
+        onKeyPress={this.checkEnter}
+      />
+    );
+  }
 
   render() {
     return (

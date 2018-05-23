@@ -19,12 +19,12 @@ const Lane = (props) => {
           editing={lane.editing}
           value={lane.name}
           onValueClick={() => editLane(lane.id)}
-          onUpdate={name => {updateLane({ ...lane, name, editing: false }); console.log(name)}}
+          onUpdate={name => updateLane({ ...lane, name, editing: false })}
         />
-		<div className={styles.LaneAddNote}>
-          <button onClick={() => addNote({ task: 'New Note'}, laneId)}>Add Note</button>
+        <div className={styles.LaneAddNote}>
+          <button onClick={() => addNote({ task: 'New Note' }, laneId)}>Add Note</button>
         </div>
-        
+
       </div>
       <NotesContainer
         notes={laneNotes}
@@ -44,3 +44,4 @@ Lane.propTypes = {
 };
 
 export default Lane;
+
