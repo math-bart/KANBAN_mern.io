@@ -22,8 +22,8 @@ export default class Edit extends Component {
 
     return (
       <div>
-        <span className={styles.value} onClick={onValueClick}>{value}</span>
         {onDelete ? this.renderDelete() : null}
+        <span className={styles.value} onClick={onValueClick}>{value}</span>
       </div>
     );
   }
@@ -55,4 +55,5 @@ Edit.propTypes = {
   onValueClick: PropTypes.func,
   onDelete: PropTypes.func,
   editing: PropTypes.bool,
+  className: PropTypes.string,
 };

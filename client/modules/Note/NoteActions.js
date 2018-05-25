@@ -50,7 +50,7 @@ export function deleteNote(noteId, laneId) {
 
 export function deleteNoteRequest(noteId, laneId) {
   return (dispatch) => {
-    return callApi(`notes/${noteId}`, 'delete', { laneId }).then(() => {
+    return callApi(`notes/${noteId}`, 'delete').then(() => {
       dispatch(deleteNote(noteId, laneId));
     });
   };
@@ -72,10 +72,10 @@ export function createNotes(notesData) {
 }
 
 export function moveWithinLane(laneId, targetId, sourceId) {
- return {
-   type: MOVE_WITHIN_LANE,
-   laneId,
-   targetId,
-   sourceId,
- };
+  return {
+    type: MOVE_WITHIN_LANE,
+    laneId,
+    targetId,
+    sourceId,
+  };
 }

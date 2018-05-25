@@ -41,13 +41,13 @@ export default function lanes(state = initialState, action) {
     case DELETE_LANE: {
       return omit(state, action.laneId);
     }
-	case MOVE_WITHIN_LANE: {
+    case MOVE_WITHIN_LANE: {
       const newLane = { ...state[action.laneId] };
       newLane.notes = moveNotes(newLane.notes, action.sourceId, action.targetId);
 
       return { ...state, [action.laneId]: newLane };
     }
-	case MOVE_BETWEEN_LANES: {
+    case MOVE_BETWEEN_LANES: {
       const targetLane = { ...state[action.targetLaneId] };
       targetLane.notes = [...targetLane.notes, action.noteId];
 

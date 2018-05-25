@@ -2,10 +2,11 @@
   margin: 10px 30px;
   list-style-type: none;
   border: 1px solid white;
-  padding: 10px 0 10px 10px;
+  padding: 10px 30px 10px 10px;
   border-radius: 10px;
   word-break: break-all;
   background: rgba(254, 180, 37, 0.7);
+  position: relative;
 }
 
 .Note button {
@@ -17,8 +18,10 @@
   background-color: #fff;
   float: right;
   cursor: pointer;
-  margin-top: -8px;
-  margin-right: 2px;
+  display: block;
+  position: absolute;
+  right: 3px;
+  top: 3px;
   font-weight: 600;
   font-size: 14px;
   line-height: 14px;

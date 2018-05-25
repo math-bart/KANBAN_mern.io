@@ -3,7 +3,6 @@ import Lane from './Lane';
 import { compose } from 'redux';
 import { DropTarget } from 'react-dnd';
 import ItemTypes from '../Kanban/itemTypes';
-import callApi from '../../util/apiCaller';
 
 import {
   createLaneRequest,
@@ -17,28 +16,12 @@ import {
  } from './LaneActions';
 import { createNoteRequest } from '../Note/NoteActions';
 
-/*const noteTarget = {
- hover(targetProps, monitor) {
-   const sourceProps = monitor.getItem();
-   const { id: noteId, laneId: sourceLaneId } = sourceProps;
-
-   if (!targetProps.lane.notes.length) {
-	 console.log(!targetProps.lane.notes.length);
-     targetProps.moveBetweenLanes(
-       targetProps.lane.id,
-       noteId,
-       sourceLaneId,
-     );
-   } 
- },
-};*/
-
 const noteTarget = {
   drop(targetProps, monitor) {
     const sourceProps = monitor.getItem();
-    const { id: noteId, laneId: sourceLaneId } = sourceProps;
+    const { id: noteId, laneId: sourceLaneId, task: task } = sourceProps;
     if (targetProps.lane.id !== sourceLaneId) {
-      targetProps.changeLanesRequest(sourceLaneId, targetProps.lane.id, noteId);
+      targetProps.changeLanesRequest(sourceLaneId, targetProps.lane.id, noteId, task);
     }
   },
 };
@@ -63,6 +46,6 @@ const mapDispatchToProps = {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   DropTarget(ItemTypes.NOTE, noteTarget, (dragConnect) => ({
-    connectDropTarget: dragConnect.dropTarget()
+    connectDropTarget: dragConnect.dropTarget(),
   }))
 )(Lane);

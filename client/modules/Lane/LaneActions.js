@@ -114,13 +114,13 @@ export function pushToLane(targetLaneId, noteId) {
   };
 }
 
-export function changeLanesRequest(sourceLaneId, targetLaneId, noteId) {
+export function changeLanesRequest(sourceLaneId, targetLaneId, noteId, newTask) {
   return (dispatch) => {
-    /*return callApi('notes/${noteId}', 'delete')
-      .then((res) => {
-        callApi('notes', 'post', { laneId: targetLaneId, note: res });
+    return callApi(`notes/${noteId}`, 'delete')
+      .then(() => {
+        callApi('notes', 'post', { note: { id: noteId, task: newTask }, laneId: targetLaneId });
       })
-      .then(() => {*/
+      .then(() => {
         dispatch(removeFromLane(
           sourceLaneId,
           noteId,
@@ -129,7 +129,6 @@ export function changeLanesRequest(sourceLaneId, targetLaneId, noteId) {
           targetLaneId,
           noteId,
         ));
-      //}
-    //);
+      });
   };
 }
