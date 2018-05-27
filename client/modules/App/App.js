@@ -6,7 +6,6 @@ import styles from './App.css';
 
 // Import Components
 import Helmet from 'react-helmet';
-import DevTools from './components/DevTools';
 
 // Import Actions
 import { toggleAddPost } from './AppActions';
@@ -28,7 +27,7 @@ export class App extends Component {
   render() {
     return (
       <div className={styles.all}>
-        {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
+        {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' }
         <div>
           <Helmet
             title="MERN Starter - Blog App"
